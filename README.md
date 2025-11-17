@@ -37,7 +37,7 @@ The goal is to compare these approaches in terms of **accuracy, efficiency, and 
 
 ---
 
-## 📁 **Project Structure**
+## **Project Structure**
 
 Capstone-Project/
 │
@@ -64,7 +64,7 @@ Capstone-Project/
 
 ---
 
-## 🧹 **Preprocessing Pipeline**
+## **Preprocessing Pipeline**
 
 - Remove HTML tags
 - Convert to lowercase
@@ -74,20 +74,20 @@ Capstone-Project/
 
 ---
 
-# 🚀 **Models Implemented**
+# **Models Implemented**
 
 ---
 
-## 1️⃣ **TF-IDF + Logistic Regression (Bag of Words)**
+## 1 **TF-IDF + Logistic Regression (Bag of Words)**
 
-### ✔ Why this works well
+### Why this works well
 
 Movie reviews contain strong sentiment words (“good”, “boring”, “amazing”).  
 TF-IDF highlights these.
 
-### 🔧 **Train**
+### **Train**
 
-### 🔍 **Evaluate**
+### **Evaluate**
 
 ### ✔ **Results (Your Output)**
 
@@ -96,13 +96,13 @@ TF-IDF highlights these.
 
 ---
 
-## 2️⃣ **Word2Vec + Logistic Regression**
+## 2 **Word2Vec + Logistic Regression**
 
 ### ✔ Why slightly less accurate?
 
 Word2Vec captures meaning but **averaging embeddings loses sentiment context**.
 
-### 🔧 **Train**
+### **Train**
 
 ### ✔ **Results (Your Output)**
 
@@ -111,7 +111,7 @@ Word2Vec captures meaning but **averaging embeddings loses sentiment context**.
 
 ---
 
-## 3️⃣ **DistilBERT Transformer Model (LLM)**
+## 3️ **DistilBERT Transformer Model (LLM)**
 
 The most modern Gen-AI approach.  
 BERT understands **full sentence context** → better sentiment detection.
@@ -125,7 +125,7 @@ BERT understands **full sentence context** → better sentiment detection.
 
 ---
 
-# 📊 **Final Model Comparison**
+# **Final Model Comparison**
 
 | Model                              | Accuracy  | Speed   | Notes                              |
 | ---------------------------------- | --------- | ------- | ---------------------------------- |
@@ -133,7 +133,7 @@ BERT understands **full sentence context** → better sentiment detection.
 | **Word2Vec + Logistic Regression** | 86%       | Fast    | Loses context                      |
 | **DistilBERT**                     | ⭐ 92–94% | Slowest | Most accurate, understands context |
 
-# 🧪 **How to Run the Project**
+# **How to Run the Project**
 
 ### Install dependencies:
 
@@ -168,6 +168,6 @@ This capstone project demonstrates:
 
 ---
 
-# ✨ **Author**
+# **Author**
 
 ## **Ayush Khati**
