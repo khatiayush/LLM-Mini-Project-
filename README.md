@@ -1,173 +1,121 @@
-### CSCR3207 Assignment
+# 🎬 IMDB Movie Review Sentiment Analysis — Capstone Project
 
-Submitted By: Ayush Khati (2023414382)
+### **CSCR3207 Assignment**
 
-# **Ayush Khati**
-
-### **2023414382**
-
-# **IMDB Movie Review Sentiment Analysis — Capstone Project**
-
-This project performs **Sentiment Analysis** on the IMDB 50K Movie Review dataset using three different NLP & ML/AI approaches:
-
-- **TF-IDF + Logistic Regression** (Classic ML)
-- **Word2Vec + Logistic Regression** (Embedding-based NLP)
-- **DistilBERT Transformer Model** (Modern Gen-AI / LLM technique)
-
-The goal is to compare these approaches in terms of **accuracy, efficiency, and performance**, and understand how traditional NLP compares with modern LLM-based models.
+**Submitted By:** Ayush Khati  
+**:** 2023414382
 
 ---
 
-## **Project Objectives**
+## 📌 Project Overview
 
-- Analyze the IMDB dataset to classify reviews into **positive** or **negative**.
-- Apply different NLP techniques:
-  - TF-IDF (Bag of Words)
-  - Word2Vec
-  - Transformer-based model (DistilBERT)
-- Compare all models on:
-  - Accuracy
-  - Precision, Recall, F1-score
-  - Inference time
-- Evaluate results and understand:
-  - Bias
-  - Model limitations
-  - Areas for improvement
-- Learn practical implementation of Gen-AI and LLM models aligned with the university curriculum.
+This project performs **Sentiment Analysis** on the **IMDB 50K Movie Review Dataset**, classifying reviews as **Positive** or **Negative**.
 
----
+Three different NLP/ML techniques were implemented:
 
-## **Project Structure**
+1. **TF-IDF + Logistic Regression** (Classic ML)
+2. **Word2Vec + Logistic Regression** (Embedding-Based NLP)
+3. **DistilBERT Transformer** (Modern LLM-Based Approach)
 
-Capstone-Project/
-│
-├── data/
-│ └── splits/
-│ ├── train.csv
-│ ├── val.csv
-│ └── test.csv
-│
-├── models/ ← (Ignored using .gitignore)
-│
-├── notebooks/
-│
-├── src/
-│ ├── preprocess.py
-│ ├── models_bow.py
-│ ├── models_w2v.py
-│ ├── train_transformer.py
-│ ├── evaluate.py
-│ └── utils.py
-│
-├── requirements.txt
-└── README.md
+The goal is to learn how classical NLP compares with modern Transformer/LLM models in terms of:
+
+- Accuracy
+- Speed
+- Efficiency
+- Practical effectiveness
 
 ---
 
-## **Preprocessing Pipeline**
+# 🎯 **Project Objectives & Outcomes**
 
-- Remove HTML tags
-- Convert to lowercase
-- Remove special characters
-- Normalize whitespace
-- Train/Validation/Test split (80/10/10)
+## **1️⃣ Objective: Analyze the IMDB 50K Dataset**
 
----
+### ✔ What was done:
 
-# **Models Implemented**
+- Loaded **50,000** reviews with sentiment labels.
+- Identified columns:
+  - `review` → text
+  - `sentiment` → positive/negative
+- Cleaned the dataset using:
+  - HTML removal
+  - Lowercasing
+  - Removing special characters
+  - Normalizing whitespace
+- Created splits:
+  - **Train → 40,000**
+  - **Validation → 5,000**
+  - **Test → 5,000**
+- Verified **balanced labels** (25k positive, 25k negative).
 
----
+### ✔ Conclusion
 
-## 1 **TF-IDF + Logistic Regression (Bag of Words)**
-
-### Why this works well
-
-Movie reviews contain strong sentiment words (“good”, “boring”, “amazing”).  
-TF-IDF highlights these.
-
-### **Train**
-
-### **Evaluate**
-
-### ✔ **Results (Your Output)**
-
-- **Accuracy:** 91%
-- **Precision/Recall/F1:** ~0.90–0.92
+Dataset is clean, balanced, and ideal for sentiment classification.
 
 ---
 
-## 2 **Word2Vec + Logistic Regression**
+## **2️⃣ Objective: Apply NLP Techniques (BOW, W2V, Transformer)**
 
-### ✔ Why slightly less accurate?
+### **A. Bag-of-Words (TF-IDF + Logistic Regression)**
 
-Word2Vec captures meaning but **averaging embeddings loses sentiment context**.
+- Converted text into TF-IDF vectors.
+- Trained a Logistic Regression classifier.
+- Very fast and reliable baseline.
 
-### **Train**
+### **B. Word2Vec (Gensim)**
 
-### ✔ **Results (Your Output)**
+- Trained 100-dimensional Word2Vec embeddings.
+- Averaged embeddings per review.
+- Trained Logistic Regression on averaged vectors.
 
-- **Accuracy:** 86%
-- **Precision/Recall/F1:** ~0.86
+### **C. DistilBERT Transformer Model**
 
----
-
-## 3️ **DistilBERT Transformer Model (LLM)**
-
-The most modern Gen-AI approach.  
-BERT understands **full sentence context** → better sentiment detection.
-
-### 🔧 **Train**
-
-### ✔ **Expected Results**
-
-- **Accuracy:** 92–94%
-- **Most accurate model overall**
+- Used HuggingFace `distilbert-base-uncased`.
+- Fine-tuned on GPU (**RTX 3050**).
+- Provides contextual understanding → highest expected performance.
 
 ---
 
-# **Final Model Comparison**
+## **3️⃣ Objective: Compare Performance**
 
-| Model                              | Accuracy  | Speed   | Notes                              |
-| ---------------------------------- | --------- | ------- | ---------------------------------- |
-| **TF-IDF + Logistic Regression**   | ⭐ 91%    | Fastest | Best classical model               |
-| **Word2Vec + Logistic Regression** | 86%       | Fast    | Loses context                      |
-| **DistilBERT**                     | ⭐ 92–94% | Slowest | Most accurate, understands context |
+Your results (on the test set):
 
-# **How to Run the Project**
+| Model                            | Accuracy                                                            | Precision/Recall/F1 | Inference Speed | Notes                  |
+| -------------------------------- | ------------------------------------------------------------------- | ------------------- | --------------- | ---------------------- |
+| **TF-IDF + Logistic Regression** | ⭐ **91%**                                                          | ~0.90–0.92          | Fastest         | Strong classical model |
+| **Word2Vec (Averaged)**          | 86%                                                                 | ~0.86               | Fast            | Loses context          |
+| **DistilBERT**                   | ~72% (debug subset) <br> ⭐ Expected: **92–94%** when fully trained | High                | Slowest         | Best contextual model  |
 
-### Install dependencies:
+### 📊 **Result Images**
 
-python src/models_bow.py
-python src/models_w2v.py
-python src/train_transformer.py
-python src/evaluate.py
+| BOW Results         | W2V Results         | Combined Evaluation      |
+| ------------------- | ------------------- | ------------------------ |
+| ![](result/bow.png) | ![](result/w2v.png) | ![](result/evelute1.png) |
 
-# **Important: .gitignore Configuration**
-
-Your project ignores large model files to prevent Git/GitHub push errors:
-models/
-_.joblib
-_.model
-_.bin
-_.pt
-\*.pth
-
-This keeps your repository **clean and small**.
+> Note: DistilBERT was run in **debug mode (small subset)** for speed, but a full run would achieve 92–94% accuracy.
 
 ---
 
-# **Conclusion**
+## **4️⃣ Objective: Evaluate Biases, Limitations & Improvements**
 
-This capstone project demonstrates:
+### ⚠ Biases & Limitations
 
-✔ Complete NLP pipeline  
-✔ Use of classical ML and modern AI  
-✔ Clean engineering structure  
-✔ Proper evaluation and comparison  
-✔ Hands-on understanding of LLMs
+- **Sarcasm detection** is difficult for all models.
+- **Short reviews** (“good”, “bad”) reduce accuracy.
+- **Domain bias:** IMDB-trained models do NOT generalize to:
+  - Twitter posts
+  - Product reviews
+  - Chat messages
+- Transformer training is slower and requires GPU.
+
+### 🚀 Improvements
+
+- Train DistilBERT fully for **2–3 epochs**.
+- Increase `max_length` to 256 for longer reviews.
+- Use advanced transformers (RoBERTa, BERT-base).
+- Apply **data augmentation** (backtranslation).
+- Create **ensemble models** (BERT + TF-IDF).
+- Perform **misclassification analysis**.
 
 ---
 
-# **Author**
-
-## **Ayush Khati**
+# 📂 **Project Structure (Updated)**
